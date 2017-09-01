@@ -1,0 +1,11 @@
+module.exports = {
+	extends: ["airbnb-base", "plugin:flowtype/recommended"],
+	plugins: ["import", "flowtype"],
+	rules: {
+		semi: ["error", "never"],
+		quotes: ["error", "double"],
+		"no-underscore-dangle": "off",
+		indent: ["error", "tab"],
+		"no-tabs": "off",
+	},
+}

@@ -1,4 +1,4 @@
-const rule = require("../../src/rules/consistent_imports")
+const rule = require("../../src/rules/consistent_import")
 const RuleTester = require("eslint").RuleTester
 
 const parserOptions = {
@@ -32,9 +32,27 @@ const suggestionTests = {
 		{
 			code: "import BookingDuck from '../../BookingDuck.spec.js'",
 			parserOptions,
-		}
-
-
+		},
+		{
+			code: "import { BookingDuck, BookingQuack } from '../../BookingDuck.spec.js'",
+			parserOptions,
+		},
+		{
+			code: 'import fileName from "./fileName"',
+			parserOptions,
+		},
+		{
+			code: 'import { asdf as fileName } from "./fileName"',
+			parserOptions,
+		},
+		{
+			code: 'import * as notFileName from "./fileName"',
+			parserOptions,
+		},
+		{
+			code: 'import "library"',
+			parserOptions,
+		},
 	],
 	invalid: [{
 			code: "import Product from '../../ProductComponent'",

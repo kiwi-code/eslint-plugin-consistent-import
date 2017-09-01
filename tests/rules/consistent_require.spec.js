@@ -16,47 +16,68 @@ const importErrors = [
 	},
 ]
 
-
 const suggestionTests = {
 	valid: [
 		{
-            code: "let BookingDuck = require('../../BookingDuck')",
-            parserOptions,
-        },
-        {
-            code: "var BookingDuck = require('../../BookingDuck')",
-            parserOptions,
-        },
+			code: "let BookingDuck = require('../../BookingDuck')",
+			parserOptions,
+		},
+		{
+			code: "var BookingDuck = require('../../BookingDuck')",
+			parserOptions,
+		},
 		{
 			code: "const BookingDuck = require('../../BookingDuck')",
-			parserOptions
+			parserOptions,
+		},
+		{
+			code: "const BookingDuck = surpriiise('../../BookingDuck')",
+			parserOptions,
+		},
+		{
+			code: "const BookingDuck = '../../BookingDuck'",
+			parserOptions,
+		},
+		{
+			code: "let BookingDuck",
+			parserOptions,
+		},
+		{
+			code: "let BookingDuck = maFunction()",
+			parserOptions,
 		},
 	],
 	invalid: [
 		{
-            code: "let BookingDuck = require('../../Duck')",
-            parserOptions,
-			errors: [{
-				type: "VariableDeclaration",
-				message: "BookingDuck is not consistent with Duck"
-			}]
-        },
-        {
-            code: "var BookingDuck = require('../../Duck')",
-            parserOptions,
-			errors: [{
-				type: "VariableDeclaration",
-				message: "BookingDuck is not consistent with Duck"
-			}]
-        },
+			code: "let BookingDuck = require('../../Duck')",
+			parserOptions,
+			errors: [
+				{
+					type: "VariableDeclaration",
+					message: "BookingDuck is not consistent with Duck",
+				},
+			],
+		},
+		{
+			code: "var BookingDuck = require('../../Duck')",
+			parserOptions,
+			errors: [
+				{
+					type: "VariableDeclaration",
+					message: "BookingDuck is not consistent with Duck",
+				},
+			],
+		},
 		{
 			code: "const BookingDuck = require('../../Duck')",
 			parserOptions,
-			errors: [{
-				type: "VariableDeclaration",
-				message: "BookingDuck is not consistent with Duck"
-			}]
-		}
+			errors: [
+				{
+					type: "VariableDeclaration",
+					message: "BookingDuck is not consistent with Duck",
+				},
+			],
+		},
 	],
 }
 
